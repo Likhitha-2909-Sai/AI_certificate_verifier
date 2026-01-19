@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #eef2f7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background: #ffffff;
+      padding: 20px;
+      width: 360px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    img {
+      display: block;
+      margin: 0 auto 15px;
+      width: 80px;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 15px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    .switch {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 14px;
+      cursor: pointer;
+      color: #007bff;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Lightning_bolt_symbol.svg/512px-Lightning_bolt_symbol.svg.png" alt="Electricity" />
+
+    <!-- Login Form -->
+    <div id="login">
+      <h2>Calculator Login</h2>
+      <label>Mobile Number or Email</label>
+      <input type="text" placeholder="Enter mobile number or email" />
+
+      <label>Password</label>
+      <input type="password" placeholder="Enter password" />
+
+      <button>Next</button>
+      <div class="switch" onclick="showSignup()">New user? Sign up</div>
+    </div>
+
+    <!-- Signup Form -->
+    <div id="signup" style="display:none;">
+      <h2>Calculator Sign Up</h2>
+      <label>Name</label>
+      <input type="text" placeholder="Enter your name" />
+
+      <label>Mobile Number or Email</label>
+      <input type="text" placeholder="Enter mobile number or email" />
+
+      <label>Password</label>
+      <input type="password" placeholder="Enter password" />
+
+      <label>Confirm Password</label>
+      <input type="password" placeholder="Confirm password" />
+
+      <button>Sign Up</button>
+      <div class="switch" onclick="showLogin()">Already have an account? Login</div>
+    </div>
+  </div>
+
+  <script>
+    function showSignup() {
+      document.getElementById('login').style.display = 'none';
+      document.getElementById('signup').style.display = 'block';
+    }
+
+    function showLogin() {
+      document.getElementById('signup').style.display = 'none';
+      document.getElementById('login').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
