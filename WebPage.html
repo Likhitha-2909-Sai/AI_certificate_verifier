@@ -1,116 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Calculator</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #eef2f7;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-    .container {
-      background: #ffffff;
-      padding: 20px;
-      width: 360px;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    }
-    h2 {
-      text-align: center;
-      margin-bottom: 10px;
-    }
-    img {
-      display: block;
-      margin: 0 auto 15px;
-      width: 80px;
-    }
-    label {
-      display: block;
-      margin-top: 10px;
-      font-weight: bold;
-    }
-    input {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-    button {
-      width: 100%;
-      padding: 10px;
-      margin-top: 15px;
-      background: #007bff;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #0056b3;
-    }
-    .switch {
-      text-align: center;
-      margin-top: 10px;
-      font-size: 14px;
-      cursor: pointer;
-      color: #007bff;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Voltify Login</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  height: 100vh;
+}
+
+/* MAIN SPLIT */
+.wrapper {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+
+/* LEFT SIDE – FULL IMAGE COVER */
+.left {
+  flex: 1.2;
+  background-image: url("cal.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* RIGHT SIDE */
+.right {
+  flex: 1;
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* LOGIN BOX */
+.container {
+  width: 360px;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+h2 {
+  text-align: center;
+  color: blue;
+}
+
+label {
+  font-weight: bold;
+  margin-top: 10px;
+  display: block;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.password-box {
+  position: relative;
+}
+
+.eye {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+/* BUTTON */
+button {
+  width: 100%;
+  margin-top: 15px;
+  padding: 10px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+.switch {
+  text-align: center;
+  margin-top: 10px;
+  color: #007bff;
+  cursor: pointer;
+  font-size: 14px;
+}
+</style>
 </head>
+
 <body>
-  <div class="container">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Lightning_bolt_symbol.svg/512px-Lightning_bolt_symbol.svg.png" alt="Electricity" />
 
-    <!-- Login Form -->
-    <div id="login">
-      <h2>Calculator Login</h2>
-      <label>Mobile Number or Email</label>
-      <input type="text" placeholder="Enter mobile number or email" />
+<div class="wrapper">
 
-      <label>Password</label>
-      <input type="password" placeholder="Enter password" />
+  <!-- LEFT IMAGE FULL COVER -->
+  <div class="left"></div>
 
-      <button>Next</button>
-      <div class="switch" onclick="showSignup()">New user? Sign up</div>
-    </div>
+  <!-- RIGHT LOGIN -->
+  <div class="right">
+    <div class="container">
 
-    <!-- Signup Form -->
-    <div id="signup" style="display:none;">
-      <h2>Calculator Sign Up</h2>
-      <label>Name</label>
-      <input type="text" placeholder="Enter your name" />
+      <!-- LOGIN -->
+      <div id="login">
+        <h2>VOLTIFY LOGIN</h2>
 
-      <label>Mobile Number or Email</label>
-      <input type="text" placeholder="Enter mobile number or email" />
+        <label>Mobile Number or Email</label>
+        <input type="text" placeholder="Enter mobile number or email">
 
-      <label>Password</label>
-      <input type="password" placeholder="Enter password" />
+        <label>Password</label>
+        <div class="password-box">
+          <input type="password" id="loginPwd" placeholder="Enter password">
+          <span class="eye" onclick="togglePassword('loginPwd')">👁</span>
+        </div>
 
-      <label>Confirm Password</label>
-      <input type="password" placeholder="Confirm password" />
+        <button>Next</button>
+        <div class="switch" onclick="showSignup()">New user? Sign up</div>
+      </div>
 
-      <button>Sign Up</button>
-      <div class="switch" onclick="showLogin()">Already have an account? Login</div>
+      <!-- SIGN UP -->
+      <div id="signup" style="display:none;">
+        <h2>VOLTIFY SIGN UP</h2>
+
+        <label>Name</label>
+        <input type="text" placeholder="Enter your name">
+
+        <label>Mobile Number or Email</label>
+        <input type="text" placeholder="Enter mobile number or email">
+
+        <label>Password</label>
+        <div class="password-box">
+          <input type="password" id="signPwd">
+          <span class="eye" onclick="togglePassword('signPwd')">👁</span>
+        </div>
+
+        <label>Confirm Password</label>
+        <div class="password-box">
+          <input type="password" id="confirmPwd">
+          <span class="eye" onclick="togglePassword('confirmPwd')">👁</span>
+        </div>
+
+        <button>Sign Up</button>
+        <div class="switch" onclick="showLogin()">Already have an account? Login</div>
+      </div>
+
     </div>
   </div>
 
-  <script>
-    function showSignup() {
-      document.getElementById('login').style.display = 'none';
-      document.getElementById('signup').style.display = 'block';
-    }
+</div>
 
-    function showLogin() {
-      document.getElementById('signup').style.display = 'none';
-      document.getElementById('login').style.display = 'block';
-    }
-  </script>
+<script>
+function showSignup() {
+  document.getElementById("login").style.display = "none";
+  document.getElementById("signup").style.display = "block";
+}
+
+function showLogin() {
+  document.getElementById("signup").style.display = "none";
+  document.getElementById("login").style.display = "block";
+}
+
+function togglePassword(id) {
+  const field = document.getElementById(id);
+  field.type = field.type === "password" ? "text" : "password";
+}
+</script>
+
 </body>
 </html>
+
